@@ -1,0 +1,99 @@
+.card{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 700px;
+    background-color: #0088f8a3;
+    height: 100vh;
+    transition: 0.5s;
+    border-radius: 5%;
+    z-index: 1;
+  }
+  .card h1{
+    color: #000000;
+    padding: 20px ;
+    display: flex;
+    justify-content: center;
+  }
+  .card .checkout{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 1em;
+  }
+  .card .checkout div {
+    background-color: #ae111c;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .card .checkout div:nth-child(2){
+    background-color: #0d076b;
+    color: #fff;
+  }
+  
+  .active .card {
+    left: calc(100% - 700px)
+  }
+  .active .container {
+    transform: translateX(-400px)
+  }
+  .logo{
+    padding-left: 20%;
+    padding-top: 0%;
+    margin-top: 0%;
+  }
+  .CoutainerImg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; 
+    align-items: center;
+    justify-content: center;
+    margin: 15%;
+
+  }
+  .CoutainerImg .Card-gl {
+    text-align: center;
+    background-color: #d2d0b3;
+    width: 400px;
+
+  }
+  .CoutainerImg .Card-gl img{
+    max-width: 100%;
+    width: 100%;
+    height: 500px; 
+  }
+  .CoutainerImg .Card-gl button{
+    background-color: #0d076b;
+    color: #fff;
+    width: 90%;
+    border-radius: 10px;
+    height: 50px;
+    margin: 10px;
+  }
+  .CoutainerImg .Card-gl .title{
+    font-weight: 500;
+    font-size: 2rem;
+    color: #fff;
+  }
+  .CoutainerImg .Card-gl .price{
+    font-size: 1.5rem;
+    color: #0d076b;
+    padding: 8px;
+  }
+  .card .closhShopCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card .total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
