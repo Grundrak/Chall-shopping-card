@@ -1,4 +1,5 @@
 .card{
+  margin-top: 100px;
     position: fixed;
     top: 0;
     left: 100%;
@@ -91,9 +92,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 100px;
   }
   .card .total{
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+
+.listcard li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.listcard img {
+  max-width: 80px;
+  height: auto;
+}
+
+.listcard .quantity {
+  display: flex;
+  align-items: center;
+}
+
+.listcard .quantity button {
+  background-color: #0d076b;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+
+
+.card .total .total-price {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}

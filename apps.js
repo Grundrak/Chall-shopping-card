@@ -62,7 +62,7 @@ const products = [
         image: './assets/images/8.jpg'
     },
 ];
-let listcard = [];
+const listcard = [];
 
 
 function ShowItem() {
@@ -75,7 +75,7 @@ function ShowItem() {
       <img src="${value.image}" />
       <div class="title">${value.name}</div>
       <div class="price">${value.price}MAD</div>
-      <button>Add to card</button>
+      <button onclick="AddToCard(${value.id})">Add to Cart</button>
       `;
       container.appendChild(ShowCard);
       console.log('done');
@@ -88,6 +88,7 @@ function ShowItem() {
     if(listcard[key] == null){
         listcard[key] = products[key];
        listcard[key].quantity = 1;
+       console.log('tkhchit fcard');
     }
     ReloadCard();
   }
@@ -96,23 +97,25 @@ function ShowItem() {
     const ListCard = document.querySelector('.listcard');
     ListCard.innerHTML = '';
     let Count = 0;
-    let TotalPrice = 1;
+    let TotalPrice = 0;
 
-    ListCard.forEach((value,key) => {
-        TotalPrice = TotalPrice + value.price ;
-        Count = Count + value.Quantity;
+    for (const key in listcard) {
+        const value = listcard[key];
+        TotalPrice += value.price * value.quantity;
+        Count += value.quantity;
 
         if(value != null){
             const AddCard = document.createElement('li');
             AddCard.innerHTML = `          
             <img src="${value.image}" />
             <div>${value.name}</div>
-            <div>${value.price}MAD</div> 
-            <div>${value.quantity}MAD</div> 
+            <div>${value.price} MAD</div> 
+            <div>${value.quantity} Unite</div> 
             <div>
             <div> ${value.quantity}</div>
             <button onclick="changeQuantity(${key},${value.quantity -1})">-</button>
             <button onclick="changeQuantity(${key},${value.quantity +1})">+</button>
+            
             <button onclick="removeFromCart(${key})">Delete</button>
             </div>
             `;
@@ -121,7 +124,24 @@ function ShowItem() {
         }
 
 
-    })
+    }
+    
+    const cartTotal = document.querySelector('.total-price');
+    cartTotal.textContent = `${TotalPrice} MAD`;
+    
+}
 
+  
+  function changeQuantity(key, newQuantity) {
+    if (listcard[key]) {
+        listcard[key].quantity = newQuantity;
+        ReloadCard();
+    }
+}
 
-  }
+function removeFromCart(key) {
+    if (listcard[key]) {
+        delete listcard[key];
+        ReloadCard();
+    }
+    }
