@@ -109,35 +109,39 @@ function ShowItem() {
             AddCard.innerHTML = `          
             <img src="${value.image}" />
             <div>${value.name}</div>
-            <div>${value.price} MAD</div> 
+            <div>${value.price * value.quantity} MAD</div> 
             <div>${value.quantity} Unite</div> 
             <div>
             <div> ${value.quantity}</div>
             <button onclick="changeQuantity(${key},${value.quantity -1})">-</button>
             <button onclick="changeQuantity(${key},${value.quantity +1})">+</button>
-            
             <button onclick="removeFromCart(${key})">Delete</button>
             </div>
             `;
             ListCard.appendChild(AddCard);
     
-        }
-
-
+        } 
+        
     }
     
     const cartTotal = document.querySelector('.total-price');
     cartTotal.textContent = `${TotalPrice} MAD`;
     
+
 }
 
   
   function changeQuantity(key, newQuantity) {
     if (listcard[key]) {
+        if (newQuantity < 1) {
+            console.log('ms7ni wld l3bd')
+            removeFromCart(key);
+        }
         listcard[key].quantity = newQuantity;
         ReloadCard();
     }
 }
+
 
 function removeFromCart(key) {
     if (listcard[key]) {
