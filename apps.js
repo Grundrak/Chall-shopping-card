@@ -109,8 +109,8 @@ function ShowItem() {
             AddCard.innerHTML = `          
             <img src="${value.image}" />
             <div>${value.name}</div>
-            <div>${value.price * value.quantity} MAD</div> 
             <div>${value.quantity} Unite</div> 
+            <div>${value.price * value.quantity} MAD</div> 
             <div>
             <div> ${value.quantity}</div>
             <button onclick="changeQuantity(${key},${value.quantity -1})">-</button>
@@ -125,7 +125,7 @@ function ShowItem() {
     }
     
     const cartTotal = document.querySelector('.total-price');
-    cartTotal.textContent = `${TotalPrice} MAD`;
+    cartTotal.textContent = `Total Price : ${TotalPrice} MAD`;
     
 
 }
